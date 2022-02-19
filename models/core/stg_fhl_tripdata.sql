@@ -24,7 +24,7 @@ where rn = 1
 
 
 -- dbt build --m <model.sql> --var 'is_test_run: false'
-{% if var('is_test_run', default=True) %}
+{% if var('is_test_run', default=false) %}
 
   limit 100
 
