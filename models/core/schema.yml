@@ -34,9 +34,6 @@ models:
     columns:
       - name: revenue_monthly_total_amount
         description: Monthly sum of the the total_amount of the fare charged for the trip per pickup zone, month and service.
-        tests:
-            - not_null:
-                severity: error
 
   - name: fact_fhl_trip
     description: >
@@ -59,18 +56,8 @@ models:
           description: The date and time when the meter was disengaged.
         - name: Pickup_locationid
           description: locationid where the meter was engaged.
-          tests:
-            - relationships:
-                to: ref('taxi_zone_lookup')
-                field: locationid
-                severity: warn
         - name: dropoff_locationid 
           description: locationid where the meter was engaged.
-          tests:
-            - relationships:
-                to: ref('taxi_zone_lookup')
-                field: locationid
-                severity: warn
         - name: Store_and_fwd_flag 
           description: > 
             This flag indicates whether the trip record was held in vehicle
