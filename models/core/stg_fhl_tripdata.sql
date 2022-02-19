@@ -2,8 +2,7 @@
 
 with tripdata as 
 (
-  select *,
-    row_number() over(partition by pickup_datetime) as rn
+  select *
   from {{ source('core','fhv_tripdata_2019') }} 
 )
 select
@@ -20,7 +19,6 @@ select
     SR_Flag,
    
 from tripdata
-where rn = 1
 
 
 -- dbt build --m <model.sql> --var 'is_test_run: false'
