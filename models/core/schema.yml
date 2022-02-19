@@ -75,6 +75,7 @@ models:
             - relationships:
                 to: ref('taxi_zone_lookup')
                 field: locationid
+                severity: warn
         - name: Store_and_fwd_flag 
           description: > 
             This flag indicates whether the trip record was held in vehicle
